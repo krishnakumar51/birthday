@@ -3,7 +3,7 @@ import streamlit as st
 # Set page configuration
 st.set_page_config(page_title="Happy Birthday!", page_icon="🎂", layout="centered")
 
-# CSS styling with lovely, attractive design
+# CSS styling with responsive design
 st.markdown(
     """
     <style>
@@ -17,72 +17,105 @@ st.markdown(
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 2em auto;
-        max-width: 100%;
+        margin: 1em auto;
+        width: 100%;
+        padding: 0 10px;
     }
     
     .title {
         font-family: 'Pacifico', cursive;
-        font-size: 4.2em;
+        font-size: calc(2em + 2vw); /* Responsive font size */
         text-align: center;
-        white-space: nowrap;
         background: linear-gradient(45deg, #FFD700, #FFA500);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         filter: drop-shadow(0px 2px 4px rgba(255, 215, 0, 0.5));
         margin-bottom: 0.2em;
+        width: 100%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    /* Title wrapper for better mobile display */
+    .title-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .title-text {
+        display: inline-block;
     }
     
     .title-emoji {
-        font-size: 1.5em;
-        margin: 0 10px;
+        font-size: 0.8em;
+        margin: 0 5px;
+        display: inline-block;
     }
     
     .subtitle {
         font-family: 'Arial', sans-serif;
-        font-size: 1.5em;
+        font-size: calc(1em + 0.5vw);
         color: #FFA500;
         text-align: center;
         margin-top: 10px;
+        padding: 0 10px;
     }
     
     .message {
         color: #FFD700;
         font-family: 'Arial', sans-serif;
-        font-size: 1.8em;
+        font-size: calc(1.2em + 0.5vw);
         text-align: center;
         margin: 1.5em auto;
-        padding: 20px;
-        max-width: 800px;
+        padding: 15px;
+        max-width: 90%;
         background: rgba(255, 215, 0, 0.1);
         border-radius: 20px;
         border: 2px solid rgba(255, 215, 0, 0.3);
     }
     
     .stVideo {
-        margin: 2em auto;
+        margin: 1.5em auto;
         border-radius: 15px;
         border: 2px solid #FFD700;
+    }
+
+    /* Media queries for better responsiveness */
+    @media screen and (max-width: 480px) {
+        .title {
+            font-size: calc(1.8em + 2vw);
+        }
+        .title-emoji {
+            font-size: 0.7em;
+        }
+        .message {
+            padding: 10px;
+        }
     }
     </style>
     """, 
     unsafe_allow_html=True
 )
 
-# Lovely, attractive title
+# Responsive title
 st.markdown("""
     <div class="title-container">
-        <div class="title">
-            <span class="title-emoji">🌟</span>
-            Happy Birthday, Anvi!
-            <span class="title-emoji">🌟</span>
+        <div class="title-wrapper">
+            <div class="title">
+                <span class="title-emoji">🌟</span>
+                <span class="title-text">Happy Birthday, Anvi!</span>
+                <span class="title-emoji">🌟</span>
+            </div>
         </div>
-        <div class="subtitle">✨ May your day be as special as you are! ✨</div>
+        <div class="subtitle">✨ May your day be magical! ✨</div>
     </div>
     """, unsafe_allow_html=True)
 
-st.markdown('<div class="message">Here\'s to a beautiful day filled with love, laughter, and all the joy you deserve! 🎉🎂</div>', unsafe_allow_html=True)
+st.markdown('<div class="message">Here\'s to a beautiful day filled with love and joy! 🎉🎂</div>', unsafe_allow_html=True)
 
 # Video player
 try:
